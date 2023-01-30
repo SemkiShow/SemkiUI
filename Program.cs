@@ -11,6 +11,14 @@ namespace SemkiUI
             while (true)
             {
                 Console.Clear();
+                if (selectedLine < 0)
+                {
+                    selectedLine = 0;
+                }
+                if (selectedLine >= List.Length)
+                {
+                    selectedLine = List.Length - 1;
+                }
                 Console.ResetColor();
                 for (int i = 0; i < selectedLine; i++)
                 {
@@ -25,17 +33,10 @@ namespace SemkiUI
                 {
                     Console.WriteLine(List[i]);
                 }
-                if (selectedLine < 0)
-                {
-                    selectedLine = 0;
-                }
-                if (selectedLine >= List.Length)
-                {
-                    selectedLine = List.Length - 1;
-                }
                 var key = Console.ReadKey();
                 if (key.Key == ConsoleKey.Enter)
                 {
+                    // Console.SetCursorPosition(0, Console.CursorTop - List.Length + 1);
                     return selectedLine;
                 }
                 if (key.Key == ConsoleKey.UpArrow)
@@ -46,6 +47,7 @@ namespace SemkiUI
                 {
                     selectedLine++;
                 }
+                // Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop + List.Length - 1);
             }
         }
         public static List<int> MultipleChoiceList(string[] List)
@@ -55,6 +57,14 @@ namespace SemkiUI
             while (true)
             {
                 Console.Clear();
+                if (selectedLine < 0)
+                {
+                    selectedLine = 0;
+                }
+                if (selectedLine >= List.Length)
+                {
+                    selectedLine = List.Length - 1;
+                }
                 Console.ResetColor();
                 for (int i = 0; i < selectedLine; i++)
                 {
@@ -94,14 +104,6 @@ namespace SemkiUI
                     Console.WriteLine(List[i]);
                 }
 
-                if (selectedLine < 0)
-                {
-                    selectedLine = 0;
-                }
-                if (selectedLine >= List.Length)
-                {
-                    selectedLine = List.Length - 1;
-                }
                 var key = Console.ReadKey();
                 if (key.Key == ConsoleKey.Enter)
                 {
