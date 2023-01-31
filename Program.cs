@@ -141,6 +141,10 @@ namespace SemkiUI
                 Console.WriteLine();
             }
         }
+        public static void Progressbar(string currentAction = "", float fill = 0, float size = 10)
+        {
+            Console.WriteLine("[" + new string('#', Convert.ToInt16(fill)) + new string('.', Convert.ToInt16(size - fill)) + "]" + (fill / size * 100) + "%" + currentAction);
+        }
         public static void Main()
         {
             Console.WriteLine(OneChoiceList(new string[]{"Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test10"}));
@@ -150,6 +154,10 @@ namespace SemkiUI
             }
             Text("Black Text", true, ConsoleColor.Black, ConsoleColor.White);
             Text("Ugly Text", true);
+            for (int i = 0; i <= 10; i++)
+            {
+                Progressbar("", i, 10);
+            }
         }
     }
 }
