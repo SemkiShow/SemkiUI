@@ -140,10 +140,31 @@ namespace SemkiUI
             {
                 Console.WriteLine();
             }
+            Console.ResetColor();
         }
         public static void Progressbar(string currentAction = "", float fill = 0, float size = 10)
         {
             Console.WriteLine("[" + new string('#', Convert.ToInt16(fill)) + new string('.', Convert.ToInt16(size - fill)) + "]" + (fill / size * 100) + "%" + currentAction);
+        }
+        public static string Password(char symbol = '*')
+        {
+            string password = "";
+            while (true)
+            {
+                Console.Clear();
+                Console.Write("Password: " + new string(symbol, password.Length));
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Q || key.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                    return password;
+                    break;
+                }
+                else
+                {
+                    password += key.KeyChar.ToString();
+                }
+            }
         }
         public static void Main()
         {
@@ -158,6 +179,7 @@ namespace SemkiUI
             {
                 Progressbar("", i, 10);
             }
+            Console.WriteLine(Password());
         }
     }
 }
